@@ -37,16 +37,30 @@ MVP planındaki tahmini geliştirme önceliklerine göre şu ana kadar tamamlana
    * Ürün master verilerinin (SKU, isim, barkod) oluşturulabilmesi için gerekli backend ve frontend mimarisi kuruldu[cite: 1].
    * `ProductIndex` (Listeleme) ve `ProductForm` (Ekleme/Düzenleme) Livewire bileşenleri tamamlandı, Tailwind CSS standartlarına göre arayüze entegre edildi ve veri tabanı kayıt testleri başarılı şekilde gerçekleştirildi.
 
+3. **Master Veri Modülleri - Lokasyonlar (Öncelik 2 Devamı):**
+   * `locations` tablosu kendi kendini referans alan (self-referencing) hiyerarşik yapıda oluşturuldu (Alan > Koridor > Raf > Göz).
+   * `Location` modeli tamamlandı; `name` alanı fillable'a eklendi, tip değerleri İngilizce enum (`area`, `aisle`, `rack`, `bin`) olarak standardize edildi.
+   * `typeLabelTr()` yardımcı metodu ile Türkçe etiket gösterimi sağlandı.
+   * `LocationIndex` (listeleme, arama, silme engeli) ve `LocationForm` (ekleme/düzenleme, üst lokasyon seçimi) Livewire bileşenleri tamamlandı.
+
+4. **Mal Kabul ve Yerleştirme Ekranları (Öncelik 3):**
+   * Gelen irsaliyelerin sisteme girilmesi için `InboundForm` bileşeni oluşturuldu; otomatik irsaliye numarası üretimi ve dinamik ürün kalemi ekleme/silme özelliği mevcut.
+   * `InboundIndex` bileşeni ile irsaliye listeleme, durum filtreleme ve sayfalama yapıldı.
+   * `InboundReceive` bileşeni ile her kalem için fiili teslim alınan miktar girilebiliyor.
+   * `InboundPutaway` bileşeni ile teslim alınan ürünler Göz (bin) lokasyonlarına atanarak `stocks` tablosuna otomatik kayıt oluşturuluyor.
+   * Sidebar navigasyonuna **Master Veri** (Ürünler, Lokasyonlar) ve **Operasyonlar** (Mal Kabul) grupları eklendi.
+
+---
+
 ## 6. Sıradaki Geliştirme Adımları (Yapılacaklar)
 Proje geliştirmesine aşağıdaki sırayla devam edilecektir:
 
-1. **Lokasyon Master Verilerinin Oluşturulması (Öncelik 2 Devamı):** 
-   * Depo fiziksel yapısının hiyerarşik olarak tanımlanabilmesi için kendi kendini referans alan (self-referencing) `locations` tablosunun (Alan > Koridor > Raf > Göz) veritabanı şeması (migration) ve `Location` modeli oluşturulacaktır[cite: 1].
-   * Lokasyon ekleme ve listeleme ekranları için Livewire bileşenleri tasarlanacaktır.
+1. **Stok Takip Ekranları (Öncelik 4):**
+   * Lokasyon bazlı mevcut stok izleme ekranı (hangi lokasyonda hangi üründen kaç adet var).
+   * Ürün bazlı toplam stok görünümü.
+   * Manuel stok müdahalesi (düzeltme) özelliği.
 
-2. **Mal Kabul ve Yerleştirme Ekranları (Öncelik 3):**
-   * Gelen irsaliyelerin sisteme girilmesi ve fiziksel sayım yapılarak bekleyen stok olarak alınması[cite: 1].
-   * Ürünlerin barkod okutularak ilgili lokasyonlara transfer edilmesi (Put-away)[cite: 1].
-
-3. **Stok Takip ve Sipariş Toplama (Öncelik 4 ve 5):**
-   * Lokasyon bazlı stok izleme ekranları ve sipariş bazlı toplama (Pick List) akışlarının inşa edilmesi[cite: 1].
+2. **Sipariş Toplama — Outbound (Öncelik 5):**
+   * Müşteri siparişlerinin (OutboundOrder) oluşturulması.
+   * Sipariş bazlı Pick List (toplama listesi) akışı.
+   * Lokasyondan stok düşme ve sevkiyat onayı.

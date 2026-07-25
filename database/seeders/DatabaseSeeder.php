@@ -14,12 +14,43 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-{
-    \App\Models\User::factory()->create([
-        'name' => 'Sistem Yöneticisi',
-        'email' => 'bilal1@gmail.com',
-        'password' => bcrypt('password'),
-        'role' => 'admin',
-    ]);
-}
+    {
+        // Sistem Yöneticisi kullanıcısı
+        User::firstOrCreate(
+            ['email' => 'bilal1@gmail.com'],
+            [
+                'name'     => 'Sistem Yöneticisi',
+                'password' => bcrypt('password'),
+                'role'     => 'admin',
+            ]
+        );
+
+        // Depo yöneticisi (test için)
+        User::firstOrCreate(
+            ['email' => 'yonetici@wms.com'],
+            [
+                'name'     => 'Depo Yöneticisi',
+                'password' => bcrypt('password'),
+                'role'     => 'manager',
+            ]
+        );
+
+        // Depo operatörü (test için)
+        User::firstOrCreate(
+            ['email' => 'operator@wms.com'],
+            [
+                'name'     => 'Depo Operatörü',
+                'password' => bcrypt('password'),
+                'role'     => 'operator',
+            ]
+        );
+
+        // Mock veriler — sıralama önemli (bağımlılıklar nedeniyle)
+        $this->call([
+            ProductSeeder::class,       // Ürünler (bağımsız)
+            LocationSeeder::class,      // Lokasyonlar (bağımsız)
+            InboundOrderSeeder::class,  // İrsaliyeler (Product'a bağımlı)
+            StockSeeder::class,         // Stok (Product + Location'a bağımlı)
+        ]);
+    }
 }

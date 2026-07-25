@@ -16,6 +16,21 @@
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
+
+                <flux:sidebar.group heading="Master Veri" class="grid">
+                    <flux:sidebar.item icon="cube" :href="route('products.index')" :current="request()->routeIs('products.*')" wire:navigate>
+                        Ürünler
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="map-pin" :href="route('locations.index')" :current="request()->routeIs('locations.*')" wire:navigate>
+                        Lokasyonlar
+                    </flux:sidebar.item>
+                </flux:sidebar.group>
+
+                <flux:sidebar.group heading="Operasyonlar" class="grid">
+                    <flux:sidebar.item icon="arrow-down-tray" :href="route('inbound.index')" :current="request()->routeIs('inbound.*')" wire:navigate>
+                        Mal Kabul
+                    </flux:sidebar.item>
+                </flux:sidebar.group>
             </flux:sidebar.nav>
 
             <flux:spacer />
