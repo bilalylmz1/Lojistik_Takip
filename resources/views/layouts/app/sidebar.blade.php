@@ -30,6 +30,12 @@
                     <flux:sidebar.item icon="arrow-down-tray" :href="route('inbound.index')" :current="request()->routeIs('inbound.*')" wire:navigate>
                         Mal Kabul
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="squares-2x2" :href="route('stock.index')" :current="request()->routeIs('stock.*')" wire:navigate>
+                        Stok Takip
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="arrow-up-tray" :href="route('outbound.index')" :current="request()->routeIs('outbound.*')" wire:navigate>
+                        Sipariş Toplama
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

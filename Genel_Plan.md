@@ -55,12 +55,25 @@ MVP planındaki tahmini geliştirme önceliklerine göre şu ana kadar tamamlana
 ## 6. Sıradaki Geliştirme Adımları (Yapılacaklar)
 Proje geliştirmesine aşağıdaki sırayla devam edilecektir:
 
-1. **Stok Takip Ekranları (Öncelik 4):**
-   * Lokasyon bazlı mevcut stok izleme ekranı (hangi lokasyonda hangi üründen kaç adet var).
-   * Ürün bazlı toplam stok görünümü.
-   * Manuel stok müdahalesi (düzeltme) özelliği.
+5. **Stok Takip Ekranları (Öncelik 4):**
+   * `StockIndex` bileşeni tamamlandı; lokasyon bazlı ve ürün bazlı sekmeli görünüm ile stok takibi yapılabiliyor.
+   * Düşük stok (≤5 adet) için kırmızı renk uyarısı mevcut.
+   * `StockAdjust` bileşeni ile artır/azalt modunda manuel stok düzeltmesi yapılabiliyor; sebep seçimi zorunlu.
 
-2. **Sipariş Toplama — Outbound (Öncelik 5):**
-   * Müşteri siparişlerinin (OutboundOrder) oluşturulması.
-   * Sipariş bazlı Pick List (toplama listesi) akışı.
-   * Lokasyondan stok düşme ve sevkiyat onayı.
+6. **Sipariş Toplama — Outbound (Öncelik 5):**
+   * `OutboundForm` bileşeni ile yeni sevkiyat siparişi oluşturuluyor; stok yeterliliği kontrolü dahil.
+   * `OutboundIndex` bileşeni ile siparişler listeleniyor, durum filtresi ve arama destekleniyor.
+   * `OutboundPickList` bileşeni: Pick List ekranında kalem bazlı lokasyon gösterimi ve toplama miktarı girişi.
+     Tüm kalemler toplandığında stok otomatik düşülüyor, sipariş `ready` durumuna geçiyor.
+   * `OutboundShip` bileşeni ile `ready` durumdaki siparişler `shipped` olarak onaylanıyor.
+   * `outbound_order_items` tablosuna `picked_quantity` alanı migration ile eklendi.
+   * Sidebar'a **Stok Takip** ve **Sipariş Toplama** linkleri eklendi.
+
+---
+
+## 6. Sıradaki Geliştirme Adımları (Yapılacaklar)
+MVP kapsamındaki tüm temel iş akışları tamamlanmıştır. İsteğe bağlı geliştirmeler:
+
+1. **Dashboard İstatistikleri:** Toplam stok değeri, bugünkü mal kabul/sevkiyat sayıları, düşük stok uyarıları.
+2. **Kullanıcı Yönetimi:** Admin panelinden yeni kullanıcı oluşturma, rol atama.
+3. **Raporlama:** Stok hareketi raporu, irsaliye özeti, sevkiyat geçmişi.

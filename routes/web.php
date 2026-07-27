@@ -9,6 +9,12 @@ use App\Livewire\Inbound\InboundIndex;
 use App\Livewire\Inbound\InboundForm;
 use App\Livewire\Inbound\InboundReceive;
 use App\Livewire\Inbound\InboundPutaway;
+use App\Livewire\Stock\StockIndex;
+use App\Livewire\Stock\StockAdjust;
+use App\Livewire\Outbound\OutboundIndex;
+use App\Livewire\Outbound\OutboundForm;
+use App\Livewire\Outbound\OutboundPickList;
+use App\Livewire\Outbound\OutboundShip;
 
 Route::view('/', 'welcome')->name('home');
 
@@ -33,6 +39,16 @@ Route::middleware(['auth', 'verified', 'role:admin,manager'])->group(function ()
     Route::get('/inbound/create', InboundForm::class)->name('inbound.create');
     Route::get('/inbound/{order}/receive', InboundReceive::class)->name('inbound.receive');
     Route::get('/inbound/{order}/putaway', InboundPutaway::class)->name('inbound.putaway');
+
+    // Stok Takip
+    Route::get('/stock', StockIndex::class)->name('stock.index');
+    Route::get('/stock/{stock}/adjust', StockAdjust::class)->name('stock.adjust');
+
+    // Sipariş Toplama (Outbound)
+    Route::get('/outbound', OutboundIndex::class)->name('outbound.index');
+    Route::get('/outbound/create', OutboundForm::class)->name('outbound.create');
+    Route::get('/outbound/{order}/picklist', OutboundPickList::class)->name('outbound.picklist');
+    Route::get('/outbound/{order}/ship', OutboundShip::class)->name('outbound.ship');
 });
 if (app()->environment('local')) {
     Route::get('/dev-login', function () {
