@@ -1,7 +1,5 @@
 <div>
-    <x-layouts::app :title="__('Stok Takip')">
-
-        {{-- Başlık --}}
+{{-- Başlık --}}
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>
                 <flux:heading size="xl">Stok Takip</flux:heading>
@@ -131,5 +129,5 @@
             <div class="mt-4">{{ $productTotals->links() }}</div>
         @endif
 
-    </x-layouts::app>
+
 </div>

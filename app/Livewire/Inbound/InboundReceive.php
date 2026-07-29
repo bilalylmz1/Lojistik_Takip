@@ -38,7 +38,7 @@ class InboundReceive extends Component
             ]);
         }
 
-        // Eğer tüm kalemlerin miktarları girilmişse durumu processing yap
+
         $this->order->update(['status' => 'processing']);
 
         session()->flash('success', 'Teslim alınan miktarlar kaydedildi.');

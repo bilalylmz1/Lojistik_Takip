@@ -1,5 +1,5 @@
 <div>
-    <x-layouts::app :title="'Put-away — ' . $order->order_number">
+order_number">
 
         {{-- Başlık --}}
         <div class="mb-6">
@@ -89,5 +89,5 @@
             @endif
         </div>
 
-    </x-layouts::app>
+
 </div>

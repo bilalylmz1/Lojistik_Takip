@@ -1,5 +1,5 @@
 <div>
-    <x-layouts::app :title="'Stok Düzelt — ' . $stock->product->name">
+product->name">
 
         <div class="mb-6">
             <div class="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 mb-1">
@@ -116,5 +116,5 @@
 
         </div>
 
-    </x-layouts::app>
+
 </div>

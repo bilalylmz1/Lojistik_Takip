@@ -1,5 +1,5 @@
 <div>
-    <x-layouts::app :title="$location && $location->exists ? 'Lokasyon Düzenle' : 'Yeni Lokasyon Ekle'">
+exists ? 'Lokasyon Düzenle' : 'Yeni Lokasyon Ekle'">
         <div class="mb-6">
             <flux:heading size="xl">{{ $location && $location->exists ? 'Lokasyon Düzenle' : 'Yeni Lokasyon Ekle' }}</flux:heading>
         </div>
@@ -43,5 +43,5 @@
 
             </form>
         </div>
-    </x-layouts::app>
+
 </div>

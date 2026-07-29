@@ -1,6 +1,5 @@
 <div>
-    <x-layouts::app :title="__('Lokasyon Yönetimi')">
-        <div class="flex justify-between items-center mb-6">
+<div class="flex justify-between items-center mb-6">
             <flux:heading size="xl">Lokasyonlar</flux:heading>
             <flux:button variant="primary" :href="route('locations.create')" wire:navigate>
                 Yeni Lokasyon Ekle
@@ -54,5 +53,5 @@
         <div class="mt-4">
             {{ $locations->links() }}
         </div>
-    </x-layouts::app>
+
 </div>

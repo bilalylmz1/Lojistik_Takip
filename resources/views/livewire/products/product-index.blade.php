@@ -1,6 +1,5 @@
 <div>
-<x-layouts::app :title="__('Ürün Yönetimi')">
-    <div class="flex justify-between items-center mb-6">
+<div class="flex justify-between items-center mb-6">
         <flux:heading size="xl">Ürünler</flux:heading>
         <flux:button variant="primary" :href="route('products.create')" wire:navigate>
             Yeni Ürün Ekle
@@ -44,4 +43,4 @@
     <div class="mt-4">
         {{ $products->links() }}
     </div>
-</x-layouts::app></div>
+</div>

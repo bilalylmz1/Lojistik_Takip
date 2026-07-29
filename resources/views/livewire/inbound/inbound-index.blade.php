@@ -1,7 +1,5 @@
 <div>
-    <x-layouts::app :title="__('Mal Kabul — İrsaliyeler')">
-
-        {{-- Başlık --}}
+{{-- Başlık --}}
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>
                 <flux:heading size="xl">Mal Kabul (Inbound)</flux:heading>
@@ -118,5 +116,5 @@
             {{ $orders->links() }}
         </div>
 
-    </x-layouts::app>
+
 </div>

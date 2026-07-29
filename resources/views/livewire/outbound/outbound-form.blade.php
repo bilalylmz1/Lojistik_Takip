@@ -1,7 +1,5 @@
 <div>
-    <x-layouts::app :title="__('Yeni Sipariş Oluştur')">
-
-        <div class="mb-6">
+<div class="mb-6">
             <div class="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 mb-1">
                 <a href="{{ route('outbound.index') }}" wire:navigate class="hover:text-zinc-700 dark:hover:text-zinc-200">Sipariş Toplama</a>
                 <span>/</span>
@@ -91,5 +89,5 @@
 
         </form>
 
-    </x-layouts::app>
+
 </div>

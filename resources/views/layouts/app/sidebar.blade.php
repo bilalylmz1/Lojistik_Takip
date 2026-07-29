@@ -11,9 +11,9 @@
             </flux:sidebar.header>
 
             <flux:sidebar.nav>
-                <flux:sidebar.group :heading="__('Platform')" class="grid">
+                <flux:sidebar.group heading="Genel Bakış" class="grid">
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
+                        Operasyon Merkezi
                     </flux:sidebar.item>
                 </flux:sidebar.group>
 
@@ -42,12 +42,8 @@
             <flux:spacer />
 
             <flux:sidebar.nav>
-                <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                    {{ __('Repository') }}
-                </flux:sidebar.item>
-
-                <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                    {{ __('Documentation') }}
+                <flux:sidebar.item icon="building-storefront" :href="route('locations.index')" :current="request()->routeIs('locations.*')" wire:navigate>
+                    Depo Yapısı
                 </flux:sidebar.item>
             </flux:sidebar.nav>
 

@@ -1,7 +1,5 @@
 <div>
-    <x-layouts::app :title="__('Sipariş Yönetimi — Outbound')">
-
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>
                 <flux:heading size="xl">Sipariş Toplama (Outbound)</flux:heading>
                 <flux:subheading>Sevkiyat siparişlerini oluşturun ve takip edin.</flux:subheading>
@@ -100,5 +98,5 @@
 
         <div class="mt-4">{{ $orders->links() }}</div>
 
-    </x-layouts::app>
+
 </div>

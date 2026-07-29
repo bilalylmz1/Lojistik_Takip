@@ -1,5 +1,5 @@
 <div>
-    <x-layouts::app :title="'Teslim Al — ' . $order->order_number">
+order_number">
 
         {{-- Başlık --}}
         <div class="mb-6">
@@ -74,5 +74,5 @@
 
         </form>
 
-    </x-layouts::app>
+
 </div>

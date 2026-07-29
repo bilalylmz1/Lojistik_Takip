@@ -1,7 +1,5 @@
 <div>
-    <x-layouts::app :title="__('Yeni İrsaliye Oluştur')">
-
-        <div class="mb-6">
+<div class="mb-6">
             <flux:heading size="xl">Yeni İrsaliye Oluştur</flux:heading>
             <flux:subheading>Gelen sevkiyat için irsaliye ve ürün kalemlerini tanımlayın.</flux:subheading>
         </div>
@@ -81,5 +79,5 @@
 
         </form>
 
-    </x-layouts::app>
+
 </div>

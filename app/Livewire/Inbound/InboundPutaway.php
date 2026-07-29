@@ -11,10 +11,10 @@ class InboundPutaway extends Component
 {
     public InboundOrder $order;
 
-    // Her kalem için seçilen lokasyon (item_id => location_id)
+
     public array $locationSelections = [];
 
-    // Başarılı yerleştirilen kalemler
+
     public array $putawayDone = [];
 
     public function mount(InboundOrder $order): void
@@ -40,7 +40,6 @@ class InboundPutaway extends Component
 
         $item = $this->order->items()->with('product')->findOrFail($itemId);
 
-        // Stok kaydını güncelle veya oluştur
         $stock = Stock::firstOrNew([
             'product_id'  => $item->product_id,
             'location_id' => $locationId,
@@ -51,7 +50,6 @@ class InboundPutaway extends Component
 
         $this->putawayDone[$itemId] = true;
 
-        // Tüm kalemlerin yerleştirme işlemi tamamlanmışsa irsaliyeyi kapat
         if (!in_array(false, $this->putawayDone, true)) {
             $this->order->update(['status' => 'completed']);
             session()->flash('success', 'Tüm ürünler yerleştirildi. İrsaliye tamamlandı!');
